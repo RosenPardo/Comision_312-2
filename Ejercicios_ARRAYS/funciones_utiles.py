@@ -10,7 +10,7 @@ def mostrar_lista(lista: list) -> None:
 def carga_de_datos(valores_ingresados):
     valores_ingresados = []
     for i in range(10):
-        ingreso_de_datos = input("Ingrese los valores numéricos para comenzar: ")
+        ingreso_de_datos = input("Ingrese los valores numéricos: ")
         try:
             ingreso_de_datos = int(ingreso_de_datos)
             if ingreso_de_datos >= -1000 and ingreso_de_datos <= 1000:

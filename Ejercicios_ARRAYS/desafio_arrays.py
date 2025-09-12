@@ -29,6 +29,7 @@ from funciones_utiles import *
 opciones_menu = ["\n/////// MENÚ PRINCIPAL ///////", "1- Ingresar datos.", "2- Cantidad de positivos y negativos.", "3- Suma de los números pares.", "4- Mayor número par.", "5- Listar los números ingresados.", "6- Listar los números pares.", "7- Listar los números en posiciones impares.", "8- Salir del programa."]
 
 lista = []
+print("----------------\nBIENVENIDO/A\n----------------\nPara comenzar, deberá ingresar datos numericos comprendidos entre el -1000 y el 1000 inclusive.\n")
 valores_ingresados = carga_de_datos(lista)
 
 while True:
@@ -47,7 +48,12 @@ while True:
         case 1:
             valores_ingresados = carga_de_datos(valores_ingresados)
         case 2:
-            pass
+            #Cantidad de positivos y negativos: Mostrar cuántos números ingresados son positivos y cuántos son negativos.
+            def contador_numeros(lista: list): 
+                contador_positivos = 0
+                contador_negativos = 0
+
+
         case 3:
             pass
         case 4:
