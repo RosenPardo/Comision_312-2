@@ -26,19 +26,38 @@ Las funciones de entrada de datos deben importarse desde el módulo Input.
 from funciones_utiles import *
 
 
-opciones_menu = ["MENÚ PRINCIPAL", "1- Ingresar datos.", "2- Cantidad de positivos y negativos.", "3- Suma de los números pares.", "4- Mayor número par.", "5- Listar los números ingresados.", "6- Listar los números pares.", "7- Listar los números en posiciones impares.", "8- Salir del programa."]
+opciones_menu = ["\n/////// MENÚ PRINCIPAL ///////", "1- Ingresar datos.", "2- Cantidad de positivos y negativos.", "3- Suma de los números pares.", "4- Mayor número par.", "5- Listar los números ingresados.", "6- Listar los números pares.", "7- Listar los números en posiciones impares.", "8- Salir del programa."]
+
+lista = []
+valores_ingresados = carga_de_datos(lista)
 
 while True:
     mostrar_lista(opciones_menu)
+
     menu = input(f"Seleccione el menú correspondiente: ")
     try:
         menu = int(menu)
         if menu < 1 or menu > 8:
-            print("El valor ingresado es inválido.")
+            print("\n***El valor ingresado es inválido.***\n" )
     except:
 #        mostrar_lista(opciones_menu)
-        print(f"El valor ingresado es inválido. ")
+        print(f"\n***El valor ingresado es inválido.*** \n")
 
     match menu:
         case 1:
+            valores_ingresados = carga_de_datos(valores_ingresados)
+        case 2:
+            pass
+        case 3:
+            pass
+        case 4:
+            pass
+        case 5:
+            pass
+        case 6:
+            pass
+        case 7:
+            pass
+        case 8:
             break
+
