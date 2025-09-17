@@ -12,6 +12,7 @@ Imprimir la lista de Estudiantes, sus notas y su promedio de notas. Se debe visu
 
 estudiantes = ["Juan", "Marta", "Andrea", "Ana"]
 
+
 def cargar_notas(lista_estudiantes, alumno, nota):
     pass
 
