@@ -7,7 +7,7 @@ def inicializar_matriz(cantidad_filas:int, cantidad_columnas:int, valor_inicial:
         valor_inicial (any): Valor con el que se rellenan los arrays.
 
     Returns:
-        list: Matriz creada.
+        list: Matriz creada. 
     """
     matriz = []
     for i in range(cantidad_filas):
@@ -23,19 +23,32 @@ def cargar_lista(lista:list, mensaje_dato:str = "Ingrese el str a cargar: ") -> 
         Lista (list): Lista a cargar
     """
     seguir = "s"
+    primer_carga = False
     for i in range(len(lista)):
+        
+        if primer_carga == True:
+            seguir = input("¿Desea seguir cargando? s/n: ")
+
+        if i == len(lista) - 1 or seguir != "s":
+            break
+
         if lista[i] == 0:
             dato= input(mensaje_dato)
             lista[i] = dato
+            primer_carga = True
 
-            if i == len(lista) - 1:
-                break
-            else:
-                seguir = input("¿Desea seguir cargando? s/n: ")
-
-                if seguir != "s":
-                    print("No hay más espacios para cargar datos")
-                    break
 
     return lista
 
+def cargar_notas(legajo_estudiante, notas_estudiantes, estado_legajo, nombre_estudiantes):
+    for i in range(len(notas_estudiantes)):
+        for j in range(len(notas_estudiantes[i])):
+            
+            if i == legajo_estudiante and estado_legajo[i] == 1 and notas_estudiantes[i][j] == 0:
+                nota_a_cargar = int(input(f"Ingrese la nota a cargar para el estudiante {nombre_estudiantes[i]}: "))
+                
+                while nota_a_cargar <= 0 or nota_a_cargar > 10:
+                    nota_a_cargar = int(input(f"No es un rango válido (1 - 10) Ingrese la nota a cargar para el estudiante {nombre_estudiantes[i]}: "))
+
+                notas_estudiantes[i][j]= nota_a_cargar
+                break

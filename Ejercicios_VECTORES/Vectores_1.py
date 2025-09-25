@@ -37,7 +37,7 @@ programa_activo = True
 
 while programa_activo == True:
     try: 
-        print(f"Lista estudiantes: {nombre_estudiantes}")
+        print(f"\n \nLista estudiantes: {nombre_estudiantes}")
         print(f"Lista estado legajos: {estado_legajo})")
         print(f"Matriz notas estudiantes: {notas_estudiantes})")
         print(f"Lista promedio notas: {promedio_notas})")
@@ -69,6 +69,14 @@ while programa_activo == True:
 
             case 3:
                 print("\nCARGA DE NOTAS \n")
+
+                legajo_estudiante = int(input("Ingrese el legajo que desea cargar: "))
+                  
+                cargar_notas(legajo_estudiante, notas_estudiantes, estado_legajo, nombre_estudiantes)
+
+         
+
+
             case 4:
                 print("\nPROMEDIO DE ESTUDIANTES \n")
             case 5:
