@@ -30,87 +30,49 @@ son 4 vectores y 1 matriz. cada indice corresponde a 1 estudiante
 Tienen que ser todas listas paralelas. 
 '''
 
+from funciones import *
+
+
 programa_activo = True
 
 while programa_activo == True:
     try: 
-        print(f"Lista estudiantes: {lista_estudiantes}")
+        print(f"Lista estudiantes: {nombre_estudiantes}")
         print(f"Lista estado legajos: {estado_legajo})")
+        print(f"Matriz notas estudiantes: {notas_estudiantes})")
+        print(f"Lista promedio notas: {promedio_notas})")
+
     except:
         print("")
-    menu = int(input("\n*MENÚ DE OPCIONES* " \
-    "\n 1) Generar listado de estudiantes. \n " \
-    "2) Carga de legajos. \n " \
-    "3) Carga de notas. \n " \
-    "4) Calcular promedios. \n " \
-    "5) Buscar promedio. \n " \
-    "6) Salir. \n " \
-    "Seleccione el valor: "))
+
+    menu = int(input("\n*MENÚ DE OPCIONES* \n 1) Inicializar. \n 2) Carga de legajos. \n 3) Carga de notas. \n 4) Calcular promedios. \n 5) Buscar promedio. \n 6) Salir. \n Seleccione el valor: "))
+
 
     match menu:
-        case 1:
-            print("GENERAR LISTADO DE ESTUDIANTES \n")
-            
-            cantidad_filas = int(input("Ingrese la cantidad de estudiantes: "))
-            cantidad_columnas = int(input("Ingrese la cantidad de notas a cargar: ")) + 1
-            
-            def inicializar_matriz(cantidad_filas:int, cantidad_columnas:int, valor_inicial:any) -> list:
-                matriz = []
-                for i in range(cantidad_filas):
-                    fila = [valor_inicial] * cantidad_columnas  
-                    matriz += [fila]
+            case 1:
+                print("\nINICIALIZAR \n")
+                cantidad_estudiantes = 5
                 
-                return matriz
-            
-            lista_estudiantes = inicializar_matriz(cantidad_filas, cantidad_columnas, 0)
-            estado_legajo = inicializar_matriz(cantidad_filas, 1, 0)
-        case 2:
-            print("CARGA DE LEGAJOS \n")
+                nombre_estudiantes = [0] * cantidad_estudiantes
+                estado_legajo = [0] * cantidad_estudiantes
+                promedio_notas = [0] * cantidad_estudiantes
+                notas_estudiantes = inicializar_matriz(cantidad_estudiantes, 3, 0)
 
-            def cargar_nombre_legajo(matriz: list):
-                """
-                Carga de valores a una matriz inicializada de forma aleatoria, indicando el valor a incorporar y su ubicación en la matriz (fila y columna)
+            case 2:
+                print("\nCARGA DE LEGAJOS \n")
+                
+                nombre_estudiantes = cargar_lista(nombre_estudiantes, "Ingrese el nombre del estudiante: ")
+                
+                for i in range(len(nombre_estudiantes)):
+                    if nombre_estudiantes[i] != 0:
+                        estado_legajo[i] = 1
 
-                Args:
-                    matriz (list): Matriz a cargar
-                """
-                seguir = "s"
-                while seguir == "s":
-                    fila= int(input("Indique legajo de estudiante a cargar: "))
-                    if estado_legajo[fila][0] == 0:
-                        dato= input("Ingrese el nombre del estudiante: ")
-                        matriz[fila][0] = dato
-                        estado_legajo[fila][0] = 1
-                    else:
-                        print(f"El legajo {fila} se encuentra ocupado con el nombre {matriz[fila][0]}. ")
-                    seguir = input("Desea seguir cargando nombres de legajos? s|n: ")
-            cargar_nombre_legajo(lista_estudiantes)
-        case 3 :
-            def cargar_notas_legajo(matriz: list):
-                    seguir = "s"
-                    while seguir == "s":
-                        fila= int(input("Indique legajo de estudiante: "))
-                        if estado_legajo[fila][0] == 0:
-                            print("El legajo se encuentra vacío. ")
-                        else:
-                            dato = input(f"Ingrese la nota a cargar en el legajo de {matriz[fila][0]}: ")
-                            for i in range(len(matriz[fila])):
-                                if matriz[fila][i] == 0:
-                                    matriz[fila][i] = dato
-                                    break
-                        seguir = input("Desea continuar en el menú 'carga de notas?' s|n: ")
-            
-            cargar_notas_legajo(lista_estudiantes)
-        case 4:
-            print("PROMEDIO DE ESTUDIANTES \n")
-
-            fila = input("Ingrese el legajo del estudiante: ")
-            def calcular_promedios(matriz: list):
-                for i in range(len(matriz)):
-                    for j in range(len(matriz[fila])):
-                        pass
-        case 5:
-            print("5")
-        case 6:
-            programa_activo = False
+            case 3:
+                print("\nCARGA DE NOTAS \n")
+            case 4:
+                print("\nPROMEDIO DE ESTUDIANTES \n")
+            case 5:
+                print("5")
+            case 6:
+                programa_activo = False
 

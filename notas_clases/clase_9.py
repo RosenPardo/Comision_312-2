@@ -72,11 +72,13 @@ def cargar_matriz_aleatoriamente(matriz: list):
     """
     #Agregar las validaciones/retorno que sean necesarias
     seguir = "s"
-    while seguir == "s":
+    cantidad_cargas = 0
+    while seguir == "s" and cantidad_cargas <= len(matriz):
         fila= int(input("Indice de la fila: "))
         columna= int(input("Indice de la columna: "))
         dato= int(input("Ingrese el número a cargar: "))
         matriz[fila][columna] = dato
+        cantidad_cargas += 1
         seguir = input("Desea seguir cargando? s/n: ")
 
 
