@@ -52,11 +52,12 @@ while programa_activo == True:
             case 1:
                 print("\nINICIALIZAR \n")
                 cantidad_estudiantes = 5
+                cantidad_notas = 3
                 
                 nombre_estudiantes = [0] * cantidad_estudiantes
                 estado_legajo = [0] * cantidad_estudiantes
                 promedio_notas = [0] * cantidad_estudiantes
-                notas_estudiantes = inicializar_matriz(cantidad_estudiantes, 3, 0)
+                notas_estudiantes = inicializar_matriz(cantidad_estudiantes, cantidad_notas, 0)
 
             case 2:
                 print("\nCARGA DE LEGAJOS \n")
@@ -69,12 +70,9 @@ while programa_activo == True:
 
             case 3:
                 print("\nCARGA DE NOTAS \n")
-
+                
                 legajo_estudiante = int(input("Ingrese el legajo que desea cargar: "))
-                  
-                cargar_notas(legajo_estudiante, notas_estudiantes, estado_legajo, nombre_estudiantes)
-
-         
+                cargar_notas(legajo_estudiante, notas_estudiantes, estado_legajo, nombre_estudiantes, cantidad_notas)
 
 
             case 4:

@@ -40,7 +40,14 @@ def cargar_lista(lista:list, mensaje_dato:str = "Ingrese el str a cargar: ") -> 
 
     return lista
 
-def cargar_notas(legajo_estudiante, notas_estudiantes, estado_legajo, nombre_estudiantes):
+def cargar_notas(legajo_estudiante, notas_estudiantes, estado_legajo, nombre_estudiantes, cantidad_notas):
+    cantidad_notas -= 1
+
+    if notas_estudiantes[legajo_estudiante][cantidad_notas] != 0:
+        print("No hay más lugar para cargar. ")
+        return None
+
+    
     for i in range(len(notas_estudiantes)):
         for j in range(len(notas_estudiantes[i])):
             
