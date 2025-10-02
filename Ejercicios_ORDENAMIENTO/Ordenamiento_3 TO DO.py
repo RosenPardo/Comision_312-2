@@ -17,11 +17,12 @@ def ordenar_vectores_signo(lista) -> list:
     for i in range(len(lista)):
         if lista[i] > 0:
             lista_positivos += [lista[i]]
+            for j in range(len(lista_positivos)):
+                if lista_positivos[i] >= lista_positivos[j]:
+                    lista_positivos[j], lista_positivos[i] = lista_positivos[i], lista_positivos[j]
         else:
             lista_negativos += [lista[i]]
 
-    ordenar_array(lista_positivos)
-    ordenar_array(lista_negativos, True)
     
     lista = lista_positivos + lista_negativos
 
@@ -32,7 +33,7 @@ def ordenar_vectores_signo(lista) -> list:
 lista_test = [4, 1, -3, 5, -24, -1, 23, -5, 2]
 
 mostrar_lista(lista_test)
-print()
+print(f"\n")
 
 lista_ordenada = ordenar_vectores_signo(lista_test)
 
